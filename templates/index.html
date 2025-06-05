@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <title>夢記録アプリ</title>
+</head>
+<body>
+    <h1>夢記録アプリ</h1>
+    <a href="{{ url_for('add_dream') }}">夢を追加</a>
+    <ul>
+    {% for dream in dreams %}
+        <li>
+            <strong>{{ dream.date }} - {{ dream.title }}</strong><br>
+            {{ dream.content }}<br>
+            <a href="{{ url_for('edit_dream', dream_id=dream.id) }}">編集</a>
+            <form action="{{ url_for('delete_dream', dream_id=dream.id) }}" method="post" style="display:inline;">
+                <button type="submit">削除</button>
+            </form>
+        </li>
+    {% else %}
+        <li>まだ夢がありません。</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

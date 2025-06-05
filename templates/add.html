@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <title>夢を追加</title>
+</head>
+<body>
+    <h1>夢を追加</h1>
+    <form method="post">
+        <label>タイトル: <input type="text" name="title" required></label><br>
+        <label>日付: <input type="date" name="date" required></label><br>
+        <label>内容:<br>
+            <textarea name="content" rows="5" cols="40" required></textarea>
+        </label><br>
+        <button type="submit">保存</button>
+    </form>
+    <a href="{{ url_for('index') }}">戻る</a>
+</body>
+</html>
